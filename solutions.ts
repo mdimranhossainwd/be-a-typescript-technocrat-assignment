@@ -46,3 +46,21 @@ console.log(person1.getDetails());
 
 const person2 = new Person("Alice", 25);
 console.log(person2.getDetails());
+
+// Filtering by Product data -> rating
+type Product = {
+  title: string;
+  rating: number;
+};
+
+function filterByRating(booksData: Product[]): Product[] {
+  return booksData.filter((book) => book.rating >= 4);
+}
+
+const books: Product[] = [
+  { title: "Book A", rating: 4.5 },
+  { title: "Book B", rating: 3.2 },
+  { title: "Book C", rating: 5.0 },
+];
+
+console.log(filterByRating(books));
