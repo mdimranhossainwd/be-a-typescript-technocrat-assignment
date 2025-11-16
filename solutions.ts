@@ -52,10 +52,20 @@ interface Book {
 }
 
 function printBookDetails(book: Book) {
-  return `Title: ${book.title}, Author: ${book.author}, Published: ${
-    book.publishedYear
-  }, Available: ${book.isAvailable ? "Yes" : "No"}`;
+  console.log(
+    `Title: ${book.title}, Author: ${book.author}, Published: ${
+      book.publishedYear
+    }, Available: ${book.isAvailable ? "Yes" : "No"}`
+  );
 }
+
+const myBook: Book = {
+  title: "The Great Gatsby",
+  author: "F. Scott Fitzgerald",
+  publishedYear: 1925,
+  isAvailable: true,
+};
+printBookDetails(myBook);
 
 function getUniqueValues<T>(arr1: T[], arr2: T[]): T[] {
   const uniqueArray: T[] = [];
