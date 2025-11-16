@@ -108,6 +108,20 @@ const myBook: Book = {
 
 console.log(printBookDetails(myBook));
 
+// getUniqueValues for 2 array findout not duplicate data
+
+function getUniqueValues<T extends string | number>(arr1: T[], arr2: T[]): T[] {
+  const adjustArray = [...arr1, ...arr2];
+
+  const notDuplicateArr = new Set(adjustArray);
+  return Array.from(notDuplicateArr);
+}
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+
+console.log(getUniqueValues(array1, array2));
+
 // calculateTotalPrice to product price and discount
 function calculateTotalPrice(
   products: {
