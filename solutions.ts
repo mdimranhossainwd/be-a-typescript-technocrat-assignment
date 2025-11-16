@@ -25,3 +25,24 @@ function getLength(value: string | unknown[]): number {
 
 console.log(getLength("type script"));
 console.log(getLength([10, 20, 30, 40]));
+
+// GetDetails for a person to converted string
+class Person {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  getDetails() {
+    return `Name: ${this.name} , Age: ${this.age}`;
+  }
+}
+
+const person1 = new Person("John Doe", 30);
+console.log(person1.getDetails());
+
+const person2 = new Person("Alice", 25);
+console.log(person2.getDetails());
