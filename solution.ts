@@ -61,17 +61,23 @@ function printBookDetails(book: Book) {
   );
 }
 
-function getUniqueValues<T>(arr1: T[], arr2: T[]): T[] {
+function getUniqueValues<T extends string | number>(arr1: T[], arr2: T[]): T[] {
   const uniqueArray: T[] = [];
-  const mergeArray = [...arr1, ...arr2];
-
-  for (const element of mergeArray) {
-    if (!uniqueArray.includes(element)) {
-      uniqueArray.push(element);
+  function addToValue(value: T) {
+    for (let i in uniqueArray) {
+      if (uniqueArray[i] === value) return;
     }
+    uniqueArray.push(value);
   }
+  for (let i in arr1) addToValue(arr1[i]);
+  for (let i in arr2) addToValue(arr2[i]);
+
   return uniqueArray;
 }
+
+const arr1 = [1, 2, 3, 4];
+const arr2 = [3, 4, 5, 6];
+console.log(getUniqueValues(arr1, arr2));
 
 function calculateTotalPrice(
   products: {
