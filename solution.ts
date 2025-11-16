@@ -59,14 +59,6 @@ function printBookDetails(book: Book) {
   );
 }
 
-const myBook: Book = {
-  title: "The Great Gatsby",
-  author: "F. Scott Fitzgerald",
-  publishedYear: 1925,
-  isAvailable: true,
-};
-printBookDetails(myBook);
-
 function getUniqueValues<T>(arr1: T[], arr2: T[]): T[] {
   const uniqueArray: T[] = [];
   const mergeArray = [...arr1, ...arr2];
