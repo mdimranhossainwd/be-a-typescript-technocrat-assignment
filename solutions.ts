@@ -107,3 +107,30 @@ const myBook: Book = {
 };
 
 console.log(printBookDetails(myBook));
+
+// calculateTotalPrice to product price and discount
+function calculateTotalPrice(
+  products: {
+    name: string;
+    price: number;
+    quantity: number;
+    discount?: number;
+  }[]
+): number {
+  return products.reduce((acc, { price, quantity, discount }) => {
+    const productAmount = price * quantity;
+    const finalTotal = discount
+      ? productAmount * (1 - discount / 100)
+      : productAmount;
+
+    return acc + finalTotal;
+  }, 0);
+}
+
+const products = [
+  { name: "Pen", price: 10, quantity: 2 },
+  { name: "Notebook", price: 25, quantity: 3, discount: 10 },
+  { name: "Bag", price: 50, quantity: 1, discount: 20 },
+];
+
+console.log(calculateTotalPrice(products));
