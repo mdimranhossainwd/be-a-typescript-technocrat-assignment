@@ -64,3 +64,23 @@ const books: Product[] = [
 ];
 
 console.log(filterByRating(books));
+
+// filterActiveUsers by isActive property
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+};
+
+function filterActiveUsers(usersData: User[]): User[] {
+  return usersData.filter((user) => user.isActive);
+}
+
+const users: User[] = [
+  { id: 1, name: "Rakib", email: "rakib@example.com", isActive: false },
+  { id: 2, name: "Asha", email: "asha@example.com", isActive: false },
+  { id: 3, name: "Rumi", email: "rumi@example.com", isActive: false },
+];
+
+console.log(filterActiveUsers(users));
