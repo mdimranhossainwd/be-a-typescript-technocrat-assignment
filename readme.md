@@ -20,6 +20,10 @@ interface User {
 type UserKeys = keyof User;
 ```
 
-### 03. Provide an example of using union and intersection types in TypeScript.
+### 03. Explain the difference between any, unknown, and never types in TypeScript.
+
+- TypeScript এ any, unknown, এবং never তিনটি ভিন্ন ধরনের টাইপ যা আলাদা উদ্দেশ্যে ব্যবহৃত হয়। any টাইপ যে কোনো ধরনের মান রাখতে পারে কিন্তু টাইপ সেফটি দেয় না, ফলে runtime এ এরর ঘটার সম্ভাবনা থাকে। unknown ও একইভাবে যেকোনো মান রাখতে পারে, কিন্তু এর উপর কোনো অপারেশন করার আগে টাইপ চেক বা type assertion করা বাধ্যতামূলক, তাই এটি any এর তুলনায় নিরাপদ। অন্যদিকে, never টাইপ সেই মানের জন্য ব্যবহৃত হয় যা কখনো ঘটবে না, যেমন ফাংশন যা কখনো রিটার্ন করে না
+
+### 04. Provide an example of using union and intersection types in TypeScript.
 
 - TypeScript-এর Union এবং Intersection types হলো শক্তিশালী concepts যা primitive, non-primitive, function, array, interface এবং generics-এর সঙ্গে কাজ করার সময় বিশেষভাবে দরকার হয়। Union type ব্যবহার করা হয় যখন একটি variable একাধিক type-এর মধ্যে যেকোনো একটির মান নিতে পারে। এটি তখন দরকার হয় যখন value বিভিন্ন ধরনের হতে পারে, API থেকে mixed type data আসে অথবা generic এবং reusable function তৈরি করতে হয়। Union type মূলত data variability handle করতে সাহায্য করে, ফলে একই variable বিভিন্ন পরিস্থিতিতে বিভিন্ন ধরনের value রাখতে সক্ষম হয়। অন্যদিকে, Intersection type ব্যবহার করা হয় যখন একটি variable বা object multiple types-এর সব property একসাথে রাখতে পারে। এটি দরকার হয় যখন multiple objects-এর property একসাথে দরকার হয়, complex objects তৈরি করতে হয় বা একাধিক interface combine করতে হয়। Intersection type মূলত type safety নিশ্চিত করে, কারণ variable-এর সব নির্ধারিত property অবশ্যই উপস্থিত থাকতে হবে। Union এবং Intersection একসাথে ব্যবহার করে flexible এবং safe data structures তৈরি করা যায়, যা বড় প্রজেক্টে, multi-role applications-এ বা reusable modules তৈরি করার সময় বিশেষভাবে উপকারী। এই দুই ধরনের type ব্যবহার করার মাধ্যমে TypeScript কোড আরও readable, maintainable এবং future-proof হয়।
