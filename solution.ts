@@ -1,4 +1,6 @@
-function formatValue(value: string | number | boolean) {
+function formatValue(
+  value: string | number | boolean
+): string | number | boolean | undefined {
   if (typeof value === "string") {
     return value.toUpperCase();
   } else if (typeof value === "number") {
@@ -79,10 +81,14 @@ function calculateTotalPrice(
     discount?: number;
   }[]
 ): number {
-  return products.reduce((acc, products) => {
-    const { price, quantity } = products;
-    const totalAmount = price * quantity;
-
-    return acc + totalAmount;
-  }, 0);
+  const totalProduct = products.map((product) => {
+    const { price, quantity, discount } = product;
+    const total = price * quantity;
+    if (discount) {
+      return total - (total * discount) / 100;
+    }
+    return total;
+  });
+  const totalPrice = totalProduct.reduce((acc, curr) => acc + curr, 0);
+  return totalPrice;
 }
