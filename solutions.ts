@@ -1,5 +1,3 @@
-// formatValue input based value
-
 function formatValue(value: string | number | boolean) {
   if (typeof value === "string") {
     return value.toUpperCase();
@@ -9,11 +7,7 @@ function formatValue(value: string | number | boolean) {
     return !value;
   }
 }
-console.log(formatValue("hello"));
-console.log(formatValue(5));
-console.log(formatValue(true));
 
-// getLength form value to converted their length
 function getLength(value: string | unknown[]): number {
   if (typeof value === "string") {
     return value.length;
@@ -23,10 +17,6 @@ function getLength(value: string | unknown[]): number {
   return 0;
 }
 
-console.log(getLength("type script"));
-console.log(getLength([10, 20, 30, 40]));
-
-// GetDetails for a person to converted string
 class Person {
   name: string;
   age: number;
@@ -37,55 +27,23 @@ class Person {
   }
 
   getDetails() {
-    return `Name: ${this.name} , Age: ${this.age}`;
+    return `'Name: ${this.name} , Age: ${this.age}'`;
   }
 }
 
-const person1 = new Person("John Doe", 30);
-console.log(person1.getDetails());
-
-const person2 = new Person("Alice", 25);
-console.log(person2.getDetails());
-
-// Filtering by Product data -> rating
-type Product = {
+function filterByRating(booksData: { title: string; rating: number }[]): {
   title: string;
   rating: number;
-};
-
-function filterByRating(booksData: Product[]): Product[] {
+}[] {
   return booksData.filter((book) => book.rating >= 4);
 }
 
-const books: Product[] = [
-  { title: "Book A", rating: 4.5 },
-  { title: "Book B", rating: 3.2 },
-  { title: "Book C", rating: 5.0 },
-];
-
-console.log(filterByRating(books));
-
-// filterActiveUsers by isActive property
-type User = {
-  id: number;
-  name: string;
-  email: string;
-  isActive: boolean;
-};
-
-function filterActiveUsers(usersData: User[]): User[] {
-  return usersData.filter((user) => user.isActive);
+function filterActiveUsers(
+  usersData: { id: number; name: string; email: string; isActive: boolean }[]
+): { id: number; name: string; email: string; isActive: boolean }[] {
+  return usersData.filter((user) => user.isActive === true);
 }
 
-const users: User[] = [
-  { id: 1, name: "Rakib", email: "rakib@example.com", isActive: false },
-  { id: 2, name: "Asha", email: "asha@example.com", isActive: false },
-  { id: 3, name: "Rumi", email: "rumi@example.com", isActive: false },
-];
-
-console.log(filterActiveUsers(users));
-
-// printBookDetails function to return book all info
 interface Book {
   title: string;
   author: string;
@@ -99,30 +57,18 @@ function printBookDetails(book: Book) {
   }, Available: ${book.isAvailable ? "Yes" : "No"}`;
 }
 
-const myBook: Book = {
-  title: "The Great Gatsby",
-  author: "F. Scott Fitzgerald",
-  publishedYear: 1925,
-  isAvailable: true,
-};
+function getUniqueValues<T>(arr1: T[], arr2: T[]): T[] {
+  const uniqueArray: T[] = [];
+  const mergeArray = [...arr1, ...arr2];
 
-console.log(printBookDetails(myBook));
-
-// getUniqueValues for 2 array findout not duplicate data
-
-function getUniqueValues<T extends string | number>(arr1: T[], arr2: T[]): T[] {
-  const adjustArray = [...arr1, ...arr2];
-
-  const notDuplicateArr = new Set(adjustArray);
-  return Array.from(notDuplicateArr);
+  for (const element of mergeArray) {
+    if (!uniqueArray.includes(element)) {
+      uniqueArray.push(element);
+    }
+  }
+  return uniqueArray;
 }
 
-const array1 = [1, 2, 3, 4, 5];
-const array2 = [3, 4, 5, 6, 7];
-
-console.log(getUniqueValues(array1, array2));
-
-// calculateTotalPrice to product price and discount
 function calculateTotalPrice(
   products: {
     name: string;
@@ -131,20 +77,10 @@ function calculateTotalPrice(
     discount?: number;
   }[]
 ): number {
-  return products.reduce((acc, { price, quantity, discount }) => {
-    const productAmount = price * quantity;
-    const finalTotal = discount
-      ? productAmount * (1 - discount / 100)
-      : productAmount;
+  return products.reduce((acc, products) => {
+    const { price, quantity } = products;
+    const totalAmount = price * quantity;
 
-    return acc + finalTotal;
+    return acc + totalAmount;
   }, 0);
 }
-
-const products = [
-  { name: "Pen", price: 10, quantity: 2 },
-  { name: "Notebook", price: 25, quantity: 3, discount: 10 },
-  { name: "Bag", price: 50, quantity: 1, discount: 20 },
-];
-
-console.log(calculateTotalPrice(products));
