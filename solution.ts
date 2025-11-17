@@ -39,7 +39,7 @@ function filterByRating(booksData: { title: string; rating: number }[]): {
   title: string;
   rating: number;
 }[] {
-  booksData.map((item) => {
+  booksData.forEach((item) => {
     if (item.rating < 0 || item.rating > 5) {
       throw new Error(`Rating must be between 0-5. You gave ${item.rating}`);
     }
