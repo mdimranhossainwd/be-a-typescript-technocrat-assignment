@@ -1,6 +1,6 @@
 ### 01. What are some differences between interfaces and types in TypeScript ?
 
-- Type এবং Interface হলো TypeScript-এর দুইটা প্রধান জিনিস, যা objects বা data structure বানাতে ব্যবহার হয়। দুটোই extend করা যায়, তবে interface এর একটি সুবিধা আছে, সেটি হলো declaration merging, যা type-এ সম্ভব নয়। Union এবং Intersection types শুধু type aliases-এ করা যায়, interface-এ নয়। Classes যেকোনোটির উপর implement করতে পারে, তাই দুটোর মধ্যেই flexibility আছে। সাধারণভাবে objects বানানোর জন্য interface ব্যবহার করা ভালো, আর unions, intersections বা primitive types handle করার জন্য type ব্যবহার করা উচিত। ভালো practice হলো interface ব্যবহার করা object shapes বা public APIs define করার জন্য, আর type ব্যবহার করা union, intersection বা primitive types এর জন্য।
+- Type এবং Interface হলো TypeScript-এর দুইটা প্রধান জিনিস, যা objects বা data structure বানাতে ব্যবহার হয়। দুটোই extend করা যায়, তবে interface এর একটি সুবিধা আছে, সেটি হলো declaration merging, যা type এ সম্ভব নয়। Union এবং Intersection types শুধু type aliases এ করা যায়, interface এ নয়। Classes যেকোনোটির উপর implement করতে পারে, তাই দুটোর মধ্যেই flexibility আছে। সাধারণভাবে objects বানানোর জন্য interface ব্যবহার করা ভালো, আর unions, intersections বা primitive types handle করার জন্য type ব্যবহার করা উচিত। ভালো practice হলো interface ব্যবহার করা object shapes বা public APIs define করার জন্য, আর type ব্যবহার করা union, intersection বা primitive types এর জন্য।
 
 ### 02. What is the use of the keyof keyword in TypeScript? Provide an example.
 
