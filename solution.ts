@@ -75,10 +75,6 @@ function getUniqueValues<T extends string | number>(arr1: T[], arr2: T[]): T[] {
   return uniqueArray;
 }
 
-const arr1 = [1, 2, 3, 4];
-const arr2 = [3, 4, 5, 6];
-console.log(getUniqueValues(arr1, arr2));
-
 function calculateTotalPrice(
   products: {
     name: string;
