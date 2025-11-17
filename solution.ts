@@ -31,7 +31,7 @@ class Person {
   }
 
   getDetails() {
-    return `'Name: ${this.name} , Age: ${this.age}'`;
+    return `'Name: ${this.name}, Age: ${this.age}'`;
   }
 }
 
@@ -39,13 +39,23 @@ function filterByRating(booksData: { title: string; rating: number }[]): {
   title: string;
   rating: number;
 }[] {
-  return booksData.filter((book) => book.rating >= 4);
+  booksData.map((item) => {
+    if (item.rating < 0 || item.rating > 5) {
+      throw new Error(`Rating must be between 0-5. You gave ${item.rating}`);
+    }
+  });
+  return booksData
+    .filter((book) => book.rating >= 4)
+    .map((book) => ({
+      ...book,
+      rating: Number(book.rating.toFixed(1)),
+    }));
 }
 
 function filterActiveUsers(
   usersData: { id: number; name: string; email: string; isActive: boolean }[]
 ): { id: number; name: string; email: string; isActive: boolean }[] {
-  return usersData.filter((user) => user.isActive === true);
+  return usersData.filter((user) => user.isActive);
 }
 
 interface Book {
@@ -85,13 +95,19 @@ function calculateTotalPrice(
     discount?: number;
   }[]
 ): number {
+  if (products.length === 0) return 0;
   const totalProduct = products.map((product) => {
     const { price, quantity, discount } = product;
     const total = price * quantity;
-    if (discount) {
-      return total - (total * discount) / 100;
+    if (discount === undefined) {
+      return total;
     }
-    return total;
+    if (discount < 0 || discount > 100) {
+      throw new Error(
+        `Discount price will be given to (0-100) you can given ${discount}`
+      );
+    }
+    return total - (total * discount) / 100;
   });
   const totalPrice = totalProduct.reduce((acc, curr) => acc + curr, 0);
   return totalPrice;
