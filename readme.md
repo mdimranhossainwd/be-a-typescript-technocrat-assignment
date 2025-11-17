@@ -26,7 +26,7 @@ type UserKeys = keyof User;
 
 ### 04. Provide an example of using union and intersection types in TypeScript.
 
-- TypeScript-এর Union এবং Intersection types হলো শক্তিশালী concepts যা primitive, non-primitive, function, array, interface এবং generics-এর সঙ্গে কাজ করার সময় বিশেষভাবে দরকার হয়। Union type ব্যবহার করা হয় যখন একটি variable একাধিক type-এর মধ্যে যেকোনো একটির মান নিতে পারে। এটি তখন দরকার হয় যখন value বিভিন্ন ধরনের হতে পারে, API থেকে mixed type data আসে অথবা generic তৈরি করতে হয়। অন্যদিকে, Intersection type ব্যবহার করা হয় যখন একটি variable বা object multiple types-এর সব property একসাথে রাখতে পারে। এটি দরকার হয় যখন multiple objects-এর property একসাথে দরকার হয়, complex objects তৈরি করতে হয় বা একাধিক interface combine করতে হয়। Intersection type মূলত type safety নিশ্চিত করে, কারণ variable-এর সব নির্ধারিত property অবশ্যই উপস্থিত থাকতে হবে।
+- TypeScript-এর Union এবং Intersection types হলো শক্তিশালী concepts যা primitive, non-primitive, function, array, interface এবং generics এর সঙ্গে কাজ করার সময় দরকার হয়। Union type ব্যবহার করা হয় যখন একটি variable একাধিক type এর মধ্যে যেকোনো একটির মান নিতে পারে। এটি তখন দরকার হয় যখন value বিভিন্ন ধরনের হতে পারে, API থেকে mixed type data আসে অথবা generic তৈরি করতে হয়। অন্যদিকে, Intersection type ব্যবহার করা হয় যখন একটি variable বা object multiple types এর সব property একসাথে রাখতে পারে। এটি দরকার হয় যখন multiple objects এর property একসাথে দরকার হয়, complex objects তৈরি করতে হয় বা একাধিক interface combine করতে হয়। Intersection type মূলত type safety নিশ্চিত করে, কারণ variable এর সব নির্ধারিত property অবশ্যই উপস্থিত থাকতে হবে।
 
 ### Exmaple code for Union
 
