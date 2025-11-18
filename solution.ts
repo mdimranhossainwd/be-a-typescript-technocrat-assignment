@@ -5,8 +5,10 @@ function formatValue(
     return value.toUpperCase();
   } else if (typeof value === "number") {
     return value * 10;
-  } else {
+  } else if (typeof value === "boolean") {
     return !value;
+  } else {
+    return value;
   }
 }
 
