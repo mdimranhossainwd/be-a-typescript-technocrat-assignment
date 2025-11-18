@@ -8,7 +8,7 @@ function formatValue(
   } else if (typeof value === "boolean") {
     return !value;
   } else {
-    throw new Error("Invalid input type for formatValue");
+    return value;
   }
 }
 
@@ -17,8 +17,9 @@ function getLength(value: string | unknown[]): number {
     return value.length;
   } else if (Array.isArray(value)) {
     return value.length;
+  } else {
+    return 0;
   }
-  throw new Error("Value must be a string or an array");
 }
 
 class Person {
