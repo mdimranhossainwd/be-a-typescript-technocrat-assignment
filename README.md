@@ -35,15 +35,15 @@ value = undefined;
 ```ts
 const handleUnknown = (value: unknown) => {
   if (typeof value === "string") {
-    return `String detected → ${value.toUpperCase()}`;
+    return `It is string ${value.toUpperCase()}`;
   }
 
   if (typeof value === "number") {
-    return `Number detected → ${value * 2}`;
+    return `It is number lpal${value * 2}`;
   }
 
   if (typeof value === "boolean") {
-    return `Boolean detected → ${value ? "TRUE" : "FALSE"}`;
+    return `It is boolean ${value ? "true" : "false"}`;
   }
 
   return "Unknown type received";
