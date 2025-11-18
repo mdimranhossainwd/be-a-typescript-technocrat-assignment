@@ -20,6 +20,51 @@ type UserKeys = keyof User;
 
 - TypeScript এ any, unknown, এবং never তিনটি ভিন্ন ধরনের টাইপ যা আলাদা উদ্দেশ্যে ব্যবহৃত হয়। any টাইপ যে কোনো ধরনের মান রাখতে পারে কিন্তু টাইপ সেফটি দেয় না, ফলে runtime এ এরর ঘটার সম্ভাবনা থাকে। unknown ও একইভাবে যেকোনো মান রাখতে পারে, কিন্তু এর উপর কোনো অপারেশন করার আগে টাইপ চেক বা type assertion করা বাধ্যতামূলক, তাই এটি any এর তুলনায় নিরাপদ। অন্যদিকে, never টাইপ সেই মানের জন্য ব্যবহৃত হয় যা কখনো ঘটবে না, যেমন ফাংশন যা কখনো রিটার্ন করে না
 
+- any Type Example Code :
+
+```ts
+type Data = any;
+
+let value: Data = "hello";
+value = 5;
+value = undefined;
+```
+
+- union Type Example Code :
+
+```ts
+const handleUnknown = (value: unknown) => {
+  if (typeof value === "string") {
+    return `String detected → ${value.toUpperCase()}`;
+  }
+
+  if (typeof value === "number") {
+    return `Number detected → ${value * 2}`;
+  }
+
+  if (typeof value === "boolean") {
+    return `Boolean detected → ${value ? "TRUE" : "FALSE"}`;
+  }
+
+  return "Unknown type received";
+};
+
+handleUnknown("hello");
+handleUnknown(10);
+handleUnknown(true);
+handleUnknown({});
+```
+
+- never Type Example Code:
+
+```ts
+function throwError(message: string): never {
+  throw new Error(message);
+}
+
+throwError("Something went wrong!");
+```
+
 ### 05. Provide an example of using union and intersection types in TypeScript.
 
 - TypeScript-এর Union এবং Intersection types হলো শক্তিশালী concepts যা primitive, non-primitive, function, array, interface এবং generics এর সঙ্গে কাজ করার সময় দরকার হয়। Union type ব্যবহার করা হয় যখন একটি variable একাধিক type এর মধ্যে যেকোনো একটির মান নিতে পারে। এটি তখন দরকার হয় যখন value বিভিন্ন ধরনের হতে পারে, API থেকে mixed type data আসে অথবা generic তৈরি করতে হয়। অন্যদিকে, Intersection type ব্যবহার করা হয় যখন একটি variable বা object multiple types এর সব property একসাথে রাখতে পারে। এটি দরকার হয় যখন multiple objects এর property একসাথে দরকার হয়, complex objects তৈরি করতে হয় বা একাধিক interface combine করতে হয়। Intersection type মূলত type safety নিশ্চিত করে, কারণ variable এর সব নির্ধারিত property অবশ্যই উপস্থিত থাকতে হবে।
