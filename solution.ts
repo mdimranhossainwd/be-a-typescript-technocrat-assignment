@@ -8,7 +8,7 @@ function formatValue(
   } else if (typeof value === "boolean") {
     return !value;
   } else {
-    return value;
+    throw new Error("Invalid input type for formatValue");
   }
 }
 
@@ -18,7 +18,7 @@ function getLength(value: string | unknown[]): number {
   } else if (Array.isArray(value)) {
     return value.length;
   }
-  return 0;
+  throw new Error("Value must be a string or an array");
 }
 
 class Person {
@@ -74,6 +74,10 @@ function printBookDetails(book: Book) {
 }
 
 function getUniqueValues<T extends string | number>(arr1: T[], arr2: T[]): T[] {
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+    throw new Error("Inputs must be arrays");
+  }
+
   const uniqueArray: T[] = [];
   function addToValue(value: T) {
     for (let i in uniqueArray) {
