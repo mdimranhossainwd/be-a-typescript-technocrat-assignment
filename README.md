@@ -39,7 +39,7 @@ const handleUnknown = (value: unknown) => {
   }
 
   if (typeof value === "number") {
-    return `It is number lpal${value * 2}`;
+    return `It is number ${value * 2}`;
   }
 
   if (typeof value === "boolean") {
