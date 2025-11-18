@@ -46,7 +46,7 @@ interface IEmployee {
   employeeId: number;
 }
 
-type JobHolder = IPerso & IEmployee;
+type JobHolder = IPerson & IEmployee;
 
 const staffInfo: JobHolder = {
   name: "TS",
